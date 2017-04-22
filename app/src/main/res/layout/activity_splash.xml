@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.carson.player.SplashActivity">
+
+    <ImageView
+        android:id="@+id/im_splash"
+        android:layout_width="120dp"
+        android:layout_height="105dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icon" />
+
+    <TextView
+        android:id="@+id/tv_slogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/im_splash"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="喵闻天下，喵见生活" />
+
+    <TextView
+        android:id="@+id/tv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="© 2017 MiaoMiao Player All rights reserved"
+        android:textColor="@color/colorLightGrey"
+        android:textSize="10sp" />
+
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:layout_above="@id/tv_right"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/miaomiaoyingyin" />
+</RelativeLayout>
