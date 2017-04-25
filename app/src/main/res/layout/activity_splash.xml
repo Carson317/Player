@@ -11,7 +11,7 @@
         android:layout_width="120dp"
         android:layout_height="105dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/icon" />
+        android:src="@drawable/yingyin" />
 
     <TextView
         android:id="@+id/tv_slogan"
@@ -32,11 +32,20 @@
         android:text="© 2017 MiaoMiao Player All rights reserved"
         android:textColor="@color/colorLightGrey"
         android:textSize="10sp" />
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_above="@id/tv_right"
+    android:orientation="horizontal"
+    android:layout_centerHorizontal="true">
 
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:src="@drawable/icon"/>
     <ImageView
         android:layout_width="60dp"
         android:layout_height="50dp"
-        android:layout_above="@id/tv_right"
-        android:layout_centerHorizontal="true"
         android:src="@drawable/miaomiaoyingyin" />
+</LinearLayout>
 </RelativeLayout>

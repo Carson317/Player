@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorRed">#eb260c</color>
     <color name="colorLightGrey">#8a8a8a</color>
+    <color name="colorTvPress">#ff8800</color>
+    <color name="colorTvNormal">#8a8a8a</color>
+    <color name="colorPressed">#ff8800</color>
+
 </resources>
