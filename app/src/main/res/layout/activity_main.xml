@@ -10,39 +10,51 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></FrameLayout>
+        android:layout_weight="1">
 
+        <ListView
+            android:id="@+id/lv_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+    </FrameLayout>
+
+    <!-- Line -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/colorLightGrey" />
     <!-- bottom -->
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingBottom="5dp"
-        android:orientation="horizontal">
+        android:paddingTop="3dp">
 
         <RadioButton
             android:id="@+id/rb_video"
+            style="@style/ThemeRadioButton"
             android:drawableTop="@drawable/drawable_video"
-            android:text="本地视频"
-            style="@style/ThemeRadioButton"/>
+            android:text="本地视频" />
 
         <RadioButton
             android:id="@+id/rb_music"
+            style="@style/ThemeRadioButton"
             android:drawableTop="@drawable/drawable_music"
-            android:text="本地音乐"
-            style="@style/ThemeRadioButton"/>
+            android:text="本地音乐" />
 
         <RadioButton
             android:id="@+id/rb_online_video"
+            style="@style/ThemeRadioButton"
             android:drawableTop="@drawable/drawable_online_video"
-            android:text="在线视频"
-            style="@style/ThemeRadioButton"/>
+            android:text="在线视频" />
 
         <RadioButton
             android:id="@+id/rb_online_music"
+            style="@style/ThemeRadioButton"
             android:drawableTop="@drawable/drawable_online_music"
-            android:text="在线音乐"
-            style="@style/ThemeRadioButton"/>
+            android:text="在线音乐" />
 
     </RadioGroup>
 

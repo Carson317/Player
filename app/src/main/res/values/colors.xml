@@ -8,5 +8,6 @@
     <color name="colorTvPress">#ff8800</color>
     <color name="colorTvNormal">#8a8a8a</color>
     <color name="colorPressed">#ff8800</color>
+    <color name="colorBottomBg">#f0ecec</color>
 
 </resources>
