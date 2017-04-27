@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <!-- include banner -->
-
+    <include layout="@layout/custom_toolbar"/>
     <!-- pager listview -->
     <FrameLayout
         android:layout_width="match_parent"

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ff8800</color>
+    <color name="colorPrimaryDark">#ff6f00</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorRed">#eb260c</color>
     <color name="colorLightGrey">#8a8a8a</color>
@@ -9,5 +9,9 @@
     <color name="colorTvNormal">#8a8a8a</color>
     <color name="colorPressed">#ff8800</color>
     <color name="colorBottomBg">#f0ecec</color>
+    <color name="colorSearch">#558a8a8a</color>
+    <color name="colorSearchPress">#bb8a8a8a</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
 
 </resources>
