@@ -8,14 +8,11 @@
     <include layout="@layout/custom_toolbar"/>
     <!-- pager listview -->
     <FrameLayout
+        android:id="@+id/pager_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ListView
-            android:id="@+id/lv_pager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"></ListView>
     </FrameLayout>
 
     <!-- Line -->
@@ -25,6 +22,7 @@
         android:background="@color/colorLightGrey" />
     <!-- bottom -->
     <RadioGroup
+        android:id="@+id/rg_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"

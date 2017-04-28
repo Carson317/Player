@@ -23,6 +23,7 @@
         android:textColor="@color/colorWhite" />
 
     <TextView
+        android:id="@+id/tv_search"
         android:layout_width="100000dp"
         android:layout_height="30dp"
         android:layout_marginLeft="10dp"
@@ -57,6 +58,7 @@
     </RelativeLayout>
 
     <ImageView
+        android:id="@+id/iv_more"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginRight="10dp"
