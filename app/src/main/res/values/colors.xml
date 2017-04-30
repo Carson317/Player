@@ -13,5 +13,6 @@
     <color name="colorSearchPress">#bb8a8a8a</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="colorLine">#35000000</color>
 
 </resources>

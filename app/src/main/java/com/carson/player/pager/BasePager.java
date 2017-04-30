@@ -10,6 +10,7 @@ import android.view.View;
 public abstract class BasePager {
     public Context mContext;
     public View mPagerView;
+    public boolean mIsInitData = false;
 
     public BasePager(Context context) {
         this.mContext = context;

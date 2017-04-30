@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +23,7 @@ import com.carson.player.pager.MusicPager;
 import com.carson.player.pager.OnlineMusicPager;
 import com.carson.player.pager.OnlineVideoPager;
 import com.carson.player.pager.VideoPager;
+import com.carson.player.utils.PlayerLogger;
 
 import java.util.ArrayList;
 
@@ -28,11 +32,11 @@ import java.util.ArrayList;
  */
 public class MainActivity extends Activity {
 
-
+    private static final String TAG = "MainActivity";
     /*
      * Exceptions found during parsing
      *
-     * References a layout (@layout/custom_toolbar)
+     * References a layout (@layout/custom_titlelbar)
      */
 
     // Content View Elements
@@ -58,6 +62,7 @@ public class MainActivity extends Activity {
     private ArrayList<BasePager> mPager = new ArrayList<>() ;
     private int position = 0;
 
+
     // End Of Content View Elements
     private void bindViews() {
         mContainer = (FrameLayout) findViewById(R.id.pager_container);
@@ -77,6 +82,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PlayerLogger.Debug("");
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
+            getWindow().setNavigationBarColor(ContextCompat.getColor(this,R.color.colorPrimary));
+        }
+
         bindViews();
 
         mVideoPager = new VideoPager(this);
@@ -97,7 +107,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+            PlayerLogger.Debug("onCheckedChanged checkedId:"+ checkedId);
             switch (checkedId){
                 case R.id.rb_video:
                     position = 0;
@@ -127,6 +137,7 @@ public class MainActivity extends Activity {
                 @Nullable
                 @Override
                 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+                    PlayerLogger.Debug("setFragment");
                     mBasePager = getBasePager();
                     if(mBasePager!= null){
                         return  mBasePager.mPagerView;
@@ -139,12 +150,19 @@ public class MainActivity extends Activity {
     }
 
     private BasePager getBasePager() {
-        if(mPager != null){
             mBasePager =  mPager.get(position);
-            mBasePager.initData();
+            PlayerLogger.Debug("mIsInitData"+ mBasePager.mIsInitData);
+            if(mBasePager != null && !mBasePager.mIsInitData){
+                PlayerLogger.Debug("BEGIN INIT DATA");
+                mBasePager.initData();
+                mBasePager.mIsInitData = true;
+            }
             return mBasePager;
-        }else {
-            return null;
-        }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
 }

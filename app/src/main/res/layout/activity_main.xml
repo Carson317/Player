@@ -5,7 +5,7 @@
     android:orientation="vertical">
 
     <!-- include banner -->
-    <include layout="@layout/custom_toolbar"/>
+    <include layout="@layout/custom_titlebar"/>
     <!-- pager listview -->
     <FrameLayout
         android:id="@+id/pager_container"
@@ -18,7 +18,7 @@
     <!-- Line -->
     <View
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="@color/colorLightGrey" />
     <!-- bottom -->
     <RadioGroup
