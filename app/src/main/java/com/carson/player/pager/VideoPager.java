@@ -18,9 +18,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.carson.player.MainActivity;
 import com.carson.player.R;
-import com.carson.player.activity.VideoPlayer;
 import com.carson.player.domain.MediaItem;
 import com.carson.player.utils.PlayerLogger;
 import com.carson.player.utils.TimeUtils;
@@ -50,7 +48,7 @@ public class VideoPager extends BasePager {
     @Override
     public View initView() {
         PlayerLogger.Debug("init video view without data");
-        View mInflateView = View.inflate(mContext, R.layout.video_view, null);
+        View mInflateView = View.inflate(mContext, R.layout.video_listview, null);
         mVideolistView = (ListView) mInflateView.findViewById(R.id.lv_video);
         mNoVideo = (TextView) mInflateView.findViewById(R.id.tv_novideo);
         mVideoProgress = (ProgressBar) mInflateView.findViewById(R.id.pb_Video);
@@ -72,7 +70,9 @@ public class VideoPager extends BasePager {
 //            mContext.startActivity(intent);
 
             //调用自己的播放器
-
+            Intent intent = new Intent("com.carson.player.activity.VideoPlayer");
+            //intent.setData(Uri.parse(mediaItem.getData()));
+            mContext.startActivity(intent);
         }
     }
 
@@ -81,6 +81,8 @@ public class VideoPager extends BasePager {
         //获取本地视频列表
         getLocalVideo();
         PlayerLogger.Debug("init Data");
+
+
     }
 
     private Handler mHandler = new Handler() {

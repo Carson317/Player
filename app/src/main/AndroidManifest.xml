@@ -22,6 +22,12 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.VideoPlayer">
+            <intent-filter>
+                <action android:name="com.carson.player.activity.VideoPlayer"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
