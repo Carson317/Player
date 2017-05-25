@@ -24,8 +24,8 @@
 
             <SurfaceView
                 android:id="@+id/player_surface"
-                android:layout_width="1.0dip"
-                android:layout_height="1.0dip" />
+                android:layout_width="match_parent"
+                android:layout_height="400dip" />
 
             <SurfaceView
                 android:id="@+id/subtitles_surface"

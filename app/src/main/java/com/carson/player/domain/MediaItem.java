@@ -1,10 +1,12 @@
 package com.carson.player.domain;
 
+import java.io.Serializable;
+
 /**
  * Created by heng.cao on 17-4-29.
  */
 
-public class MediaItem {
+public class MediaItem implements Serializable {
     private String name;
     private long duration;
     private long size;
@@ -45,6 +47,9 @@ public class MediaItem {
                 ", duration=" + duration +
                 ", size=" + size +
                 ", artist='" + artist + '\'' +
+                ", id=" + id +
+                ", thumbPath='" + thumbPath + '\'' +
+                ", filePath='" + filePath + '\'' +
                 '}';
     }
 

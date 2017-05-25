@@ -19,6 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.carson.player.R;
+import com.carson.player.activity.VideoPlayer;
 import com.carson.player.domain.MediaItem;
 import com.carson.player.utils.PlayerLogger;
 import com.carson.player.utils.TimeUtils;
@@ -65,13 +66,10 @@ public class VideoPager extends BasePager {
             MediaItem mediaItem = mMediaItems.get(position);
             PlayerLogger.Debug("data:" + mediaItem.getData());
             PlayerLogger.Debug("Uri:" + Uri.parse(mediaItem.getData()));
-//            Intent intent = new Intent();
-//            intent.setDataAndType(Uri.parse("file://"+ mediaItem.getData()),"video/*");
-//            mContext.startActivity(intent);
 
             //调用自己的播放器
-            Intent intent = new Intent("com.carson.player.activity.VideoPlayer");
-            //intent.setData(Uri.parse(mediaItem.getData()));
+            Intent intent = new Intent(mContext, VideoPlayer.class);
+            intent.setDataAndType(Uri.parse(mediaItem.getData()),"video/*");
             mContext.startActivity(intent);
         }
     }
