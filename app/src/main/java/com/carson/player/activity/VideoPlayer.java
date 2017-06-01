@@ -3,6 +3,7 @@ package com.carson.player.activity;
 import android.app.Activity;
 import android.content.Context;
 import android.media.AudioManager;
+import android.media.Metadata;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
@@ -13,6 +14,7 @@ import android.view.SurfaceView;
 import android.view.WindowManager;
 import android.widget.VideoView;
 
+import com.carson.player.MPlayerController;
 import com.carson.player.R;
 import com.carson.player.utils.PlayerLogger;
 
@@ -23,13 +25,18 @@ import java.io.IOException;
  */
 public class VideoPlayer extends Activity {
 
-    private SurfaceView mPlayerSurface;
+    private SurfaceView mPlayerSurface =null;
     private SurfaceHolder mSurfaceHolder;
-    private MediaPlayer mMediaPlayer;
+    private MediaPlayer mMediaPlayer = null;
+    private MPlayerController mVideoPlayerController;
     private Context mContext;
 
-
     private Uri mUri;
+
+    private int         mVideoWidth;
+    private int         mVideoHeight;
+    private int         mSurfaceWidth;
+    private int         mSurfaceHeight;
 
 
     @Override
@@ -73,6 +80,7 @@ public class VideoPlayer extends Activity {
 
         try {
             mMediaPlayer = new MediaPlayer();
+            mVideoPlayerController = new MPlayerController(mMediaPlayer);
 
             mMediaPlayer.setOnPreparedListener(new MyOnPreparedListener());
             mMediaPlayer.setOnVideoSizeChangedListener(mSizeChangedListener);
@@ -80,6 +88,7 @@ public class VideoPlayer extends Activity {
             mMediaPlayer.setOnErrorListener(mErrorListener);
             mMediaPlayer.setOnInfoListener(mInfoListener);
             mMediaPlayer.setOnBufferingUpdateListener(mBufferingUpdateListener);
+
             //mCurrentBufferPercentage = 0;
             //mMediaPlayer.setDataSource(mContext, mUri);
             mMediaPlayer.setDataSource(mUri.toString());
@@ -117,6 +126,20 @@ public class VideoPlayer extends Activity {
 
         @Override
         public void onPrepared(MediaPlayer mp) {
+            // Get the capabilities of the player for this stream
+            Metadata data = mp.getMetadata(MediaPlayer.METADATA_ALL,
+                    MediaPlayer.BYPASS_METADATA_FILTER);
+
+            if (data != null) {
+                mCanPause = !data.has(Metadata.PAUSE_AVAILABLE)
+                        || data.getBoolean(Metadata.PAUSE_AVAILABLE);
+                mCanSeekBack = !data.has(Metadata.SEEK_BACKWARD_AVAILABLE)
+                        || data.getBoolean(Metadata.SEEK_BACKWARD_AVAILABLE);
+                mCanSeekForward = !data.has(Metadata.SEEK_FORWARD_AVAILABLE)
+                        || data.getBoolean(Metadata.SEEK_FORWARD_AVAILABLE);
+            } else {
+                mCanPause = mCanSeekBack = mCanSeekForward = true;
+            }
             mMediaPlayer.start();
         }
     }
